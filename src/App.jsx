@@ -246,7 +246,7 @@ function Navbar({ page, setPage }) {
       <nav className={`navbar ${scrolled || page !== "home" ? "scrolled" : "transparent"}`}>
         <div className="nav-inner">
           <div className="nav-logo" onClick={() => setPage("home")}>
-            <div className="nav-logo-icon">🚛</div>
+            <img src={`${window.location.origin}/logo.png`} alt="Rkoshi Logo" style={{ width:"40px", height:"40px", borderRadius:"8px", objectFit:"contain" }} />
             Rkoshi <span>Movers</span>
           </div>
           <ul className="nav-links">
@@ -818,7 +818,7 @@ function Footer({ setPage }) {
         <div className="footer-grid">
           <div>
             <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:12 }}>
-              <div style={{ width:36, height:36, background:"linear-gradient(135deg,var(--blue),var(--blue-light))", borderRadius:8, display:"flex", alignItems:"center", justifyContent:"center", fontSize:18 }}>🚛</div>
+              <img src={`${window.location.origin}/logo.png`} alt="Rkoshi Logo" style={{ width:36, height:36, borderRadius:8, objectFit:"contain" }} />
               <span style={{ fontFamily:"var(--font-display)", fontWeight:800, fontSize:18, color:"white" }}>Rkoshi Movers</span>
             </div>
             <p style={{ fontSize:14, lineHeight:1.75, maxWidth:260 }}>{COMPANY.fullName}. Serving Ranchi, Darbhanga and 50+ cities across India with safe and affordable relocation services.</p>

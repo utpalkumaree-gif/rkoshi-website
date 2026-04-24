@@ -5,7 +5,7 @@ const GlobalStyles = () => (
     @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #0A1628; --blue: #1A5CFF; --blue-light: #3B7BFF; --blue-pale: #EEF3FF;
+      --navy: #0A1628; } html, body { background: #0A1628 !important; --blue: #1A5CFF; --blue-light: #3B7BFF; --blue-pale: #EEF3FF;
       --orange: #FF6B2B; --orange-light: #FF8F5C; --orange-pale: #FFF3ED;
       --white: #FFFFFF; --gray-50: #F8FAFC; --gray-100: #F1F5F9; --gray-200: #E2E8F0;
       --gray-400: #94A3B8; --gray-600: #475569; --gray-800: #1E293B;
@@ -15,6 +15,7 @@ const GlobalStyles = () => (
       --shadow-orange: 0 8px 30px rgba(255,107,43,0.3); --radius: 12px; --radius-lg: 20px;
     }
     html { scroll-behavior: smooth; }
+    html, body { background: #0A1628 !important; min-width: 100%; overflow-x: hidden; }
     body { font-family: var(--font-body); background: var(--white); color: var(--gray-800); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     h1,h2,h3,h4,h5 { font-family: var(--font-display); line-height: 1.15; color: var(--navy); }
     @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
@@ -57,7 +58,7 @@ const GlobalStyles = () => (
     .mobile-menu-btn { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
     .mobile-menu-btn span { display:block; width:24px; height:2px; background:var(--navy); border-radius:2px; transition:all 0.3s; }
     @media(max-width:900px){ .nav-links { display:none; } .mobile-menu-btn { display:flex; } }
-    .hero { min-height:100vh; background:linear-gradient(135deg,var(--navy) 0%,#0F2456 50%,#1A3A7A 100%); position:relative; display:flex; align-items:center; overflow:hidden; }
+    .hero { min-height:100vh; background:linear-gradient(135deg,var(--navy) 0%,#0F2456 50%,#1A3A7A 100%); position:fixed; top:0; left:0; right:0; bottom:0; display:flex; align-items:center; overflow:hidden; width:100vw; }
     .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 60% 50%,rgba(26,92,255,0.18) 0%,transparent 70%),radial-gradient(circle at 20% 80%,rgba(255,107,43,0.12) 0%,transparent 50%); }
     .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px); background-size:60px 60px; }
     .hero-content { position:relative; z-index:2; display:grid; grid-template-columns:1fr 460px; gap:64px; align-items:center; max-width:1200px; margin:0 auto; padding:100px 24px 60px; width:100%; }
@@ -238,7 +239,7 @@ function Navbar({ page, setPage }) {
       <nav className={`navbar ${scrolled || page !== "home" ? "scrolled" : "transparent"}`}>
         <div className="nav-inner">
           <div className="nav-logo" onClick={() => setPage("home")}>
-            <img src="/logo.png" alt="Rkoshi Logo" style={{ width:75, height:75, borderRadius:10, objectFit:"contain" }} />
+            <img src="/logo.png" alt="Rkoshi Logo" style={{ width:75, height:75, borderRadius:10, objectFit:"contain"font-size:20px; font-weight:800; }} />
             <span style={{color:"var(--orange)"}}>Rkoshi</span><span style={{color:"var(--orange)"}}>Packers & Movers</span>
           </div>
           <ul className="nav-links">

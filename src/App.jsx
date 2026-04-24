@@ -46,13 +46,12 @@ const GlobalStyles = () => (
     .section-subtitle { font-size:17px; color:var(--gray-600); max-width:560px; line-height:1.7; }
     .navbar { position:fixed; top:0; left:0; right:0; z-index:1000; transition:all 0.3s ease; }
     .navbar.scrolled { background:rgba(255,255,255,0.95); backdrop-filter:blur(20px); box-shadow:0 1px 0 rgba(0,0,0,0.08); }
-    .navbar.transparent { background:transparent; }
+    .navbar.transparent { background:rgba(10,22,40,0.85); backdrop-filter:blur(10px); }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; height:72px; max-width:1200px; margin:0 auto; padding:0 24px; }
-    .nav-logo { display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:20px; font-weight:800; color:var(--navy); text-decoration:none; cursor:pointer; }
-    .nav-logo-icon { width:40px; height:40px; background:linear-gradient(135deg,var(--blue),var(--blue-light)); border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; font-size:20px; }
+    .nav-logo { display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:18px; font-weight:800; color: isHero ? "white" : "var(--navy)"; text-decoration:none; cursor:pointer; }
     .nav-logo span { color:var(--orange); }
     .nav-links { display:flex; align-items:center; gap:4px; list-style:none; }
-    .nav-link { padding:8px 16px; border-radius:8px; font-size:15px; font-weight:500; color:var(--gray-600); cursor:pointer; transition:all 0.2s; text-decoration:none; }
+    .nav-link { padding:8px 12px; border-radius:8px; font-size:14px; font-weight:500; color:var(--gray-600); cursor:pointer; transition:all 0.2s; text-decoration:none; }
     .nav-link:hover, .nav-link.active { color:var(--blue); background:var(--blue-pale); }
     .nav-actions { display:flex; gap:10px; align-items:center; }
     .mobile-menu-btn { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
@@ -119,32 +118,6 @@ const GlobalStyles = () => (
     .step-label { font-family:var(--font-display); font-weight:700; font-size:15px; color:var(--navy); }
     .step-meta { font-size:13px; color:var(--gray-400); margin-top:3px; }
     .step-meta.active-meta { color:var(--orange); font-weight:600; }
-    .admin-layout { display:grid; grid-template-columns:240px 1fr; min-height:100vh; background:var(--gray-50); }
-    .admin-sidebar { background:var(--navy); padding:24px 0; position:sticky; top:0; height:100vh; overflow-y:auto; }
-    .admin-logo { padding:0 20px 28px; font-family:var(--font-display); font-size:16px; font-weight:800; color:white; border-bottom:1px solid rgba(255,255,255,0.08); margin-bottom:16px; }
-    .admin-nav-item { display:flex; align-items:center; gap:12px; padding:12px 20px; color:rgba(255,255,255,0.55); font-size:14px; font-weight:500; cursor:pointer; transition:all 0.2s; margin:2px 12px; border-radius:8px; }
-    .admin-nav-item:hover { background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.9); }
-    .admin-nav-item.active { background:rgba(26,92,255,0.2); color:white; }
-    .admin-content { padding:32px; overflow-y:auto; }
-    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:32px; }
-    .stat-card { background:white; border-radius:var(--radius); padding:24px; border:1px solid var(--gray-200); box-shadow:var(--shadow-sm); }
-    .stat-value { font-family:var(--font-display); font-size:30px; font-weight:800; color:var(--navy); }
-    .stat-label { font-size:13px; color:var(--gray-400); margin-top:4px; }
-    .stat-change { font-size:13px; font-weight:600; margin-top:10px; }
-    .stat-change.up { color:#22C55E; }
-    .bookings-table { background:white; border-radius:var(--radius); border:1px solid var(--gray-200); overflow:hidden; box-shadow:var(--shadow-sm); }
-    .table-header { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; border-bottom:1px solid var(--gray-200); }
-    .table-title { font-family:var(--font-display); font-size:17px; font-weight:700; }
-    table { width:100%; border-collapse:collapse; }
-    th { padding:14px 20px; text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; color:var(--gray-400); background:var(--gray-50); border-bottom:1px solid var(--gray-200); }
-    td { padding:16px 20px; font-size:14px; color:var(--gray-800); border-bottom:1px solid var(--gray-100); }
-    tr:last-child td { border-bottom:none; }
-    tr:hover td { background:var(--gray-50); }
-    .badge { display:inline-flex; align-items:center; padding:4px 12px; border-radius:50px; font-size:12px; font-weight:700; font-family:var(--font-display); }
-    .badge-pending { background:#FEF3C7; color:#D97706; }
-    .badge-confirmed { background:#DBEAFE; color:#2563EB; }
-    .badge-transit { background:#F3E8FF; color:#7C3AED; }
-    .badge-delivered { background:#D1FAE5; color:#059669; }
     .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
     .contact-icon { width:52px; height:52px; border-radius:14px; background:var(--blue-pale); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
     .footer { background:var(--navy); color:rgba(255,255,255,0.65); padding:72px 0 32px; }
@@ -168,13 +141,16 @@ const GlobalStyles = () => (
     .progress-bar { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--blue),var(--orange)); z-index:9999; transition:width 0.1s ease; }
     .whatsapp-float { position:fixed; bottom:24px; left:24px; z-index:1000; width:54px; height:54px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; box-shadow:0 4px 20px rgba(37,211,102,0.4); cursor:pointer; transition:all 0.25s ease; animation:float 3s ease-in-out infinite; }
     .whatsapp-float:hover { transform:scale(1.12); }
-    @media(max-width:1024px){ .hero-content { grid-template-columns:1fr; } .services-grid { grid-template-columns:repeat(2,1fr); } .features-grid { grid-template-columns:repeat(2,1fr); } .footer-grid { grid-template-columns:1fr 1fr; } .stats-grid { grid-template-columns:repeat(2,1fr); } .admin-layout { grid-template-columns:1fr; } }
-    @media(max-width:768px){ .section { padding:64px 0; } .hero-content { padding:90px 24px 48px; } .services-grid { grid-template-columns:1fr; } .cta-banner { padding:40px 24px; } .contact-grid { grid-template-columns:1fr; } .quote-form-grid { grid-template-columns:1fr; } }
-    @media(max-width:480px){ .features-grid { grid-template-columns:1fr; } .stats-grid { grid-template-columns:1fr 1fr; } }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; }
+    .gallery-card { border-radius:16px; overflow:hidden; cursor:pointer; box-shadow:var(--shadow-md); transition:all 0.25s ease; }
+    .gallery-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+    .lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; display:flex; align-items:center; justify-content:center; padding:24px; animation:fadeIn 0.3s ease both; }
+    @media(max-width:1024px){ .hero-content { grid-template-columns:1fr; } .services-grid { grid-template-columns:repeat(2,1fr); } .features-grid { grid-template-columns:repeat(2,1fr); } .footer-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:768px){ .section { padding:64px 0; } .hero-content { padding:90px 24px 48px; } .services-grid { grid-template-columns:1fr; } .cta-banner { padding:40px 24px; } .contact-grid { grid-template-columns:1fr; } .quote-form-grid { grid-template-columns:1fr; } .gallery-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:480px){ .features-grid { grid-template-columns:1fr; } .gallery-grid { grid-template-columns:1fr; } }
   `}</style>
 );
 
-// ── COMPANY INFO ──────────────────────────────────────────────
 const COMPANY = {
   name: "Rkoshi Packers & Movers",
   fullName: "Rkoshi Packers and Movers Pvt. Ltd.",
@@ -185,9 +161,6 @@ const COMPANY = {
   email2: "bookings@rkoshipackers.in",
   address: "Ranchi, Jharkhand – 834001",
   address2: "Registered: Darbhanga, Bihar",
-  cities: "Ranchi, Darbhanga & 500+ cities",
-  established: "2020",
-  gst: "YOUR-GST-NUMBER",
 };
 
 const SERVICES = [
@@ -199,7 +172,7 @@ const SERVICES = [
   { id:"packing", icon:"📦", name:"Packing & Unpacking", desc:"Expert packing with high-quality materials ensuring every item reaches safely.", color:"#FFF1F2", features:["Quality materials","Labeling system","Fragile item care","Unpacking service"], price:"Starting ₹1,999" },
 ];
 
-const CITIES = ["Ranchi","Darbhanga","Patna","Delhi","Mumbai","Bangalore","Chennai","Hyderabad","Kolkata","Pune","Ahmedabad","Jaipur","Lucknow","Chandigarh","Bhopal","Nagpur","Dhanbad","Jamshedpur","Bokaro","Hazaribagh","Muzaffarpur","Bhagalpur","Gaya","Varanasi","Allahabad"];
+const CITIES = ["Ranchi","Darbhanga","Patna","Delhi","Mumbai","Bangalore","Chennai","Hyderabad","Kolkata","Pune","Ahmedabad","Jaipur","Lucknow","Chandigarh","Bhopal","Nagpur","Dhanbad","Jamshedpur","Bokaro","Hazaribagh","Muzaffarpur","Bhagalpur","Gaya","Varanasi"];
 const HOUSE_SIZES = ["1 RK","1 BHK","2 BHK","3 BHK","4 BHK","Villa / Bungalow","Office (Small)","Office (Large)"];
 const BASE_PRICES = { "1 RK":3500,"1 BHK":5000,"2 BHK":7500,"3 BHK":10000,"4 BHK":14000,"Villa / Bungalow":20000,"Office (Small)":12000,"Office (Large)":25000 };
 
@@ -207,6 +180,18 @@ const TESTIMONIALS = [
   { name:"Amit Kumar", loc:"Ranchi → Patna", text:"Rkoshi Packers made our move completely stress-free. Very professional team, arrived on time and handled everything with great care!", rating:5, initials:"AK" },
   { name:"Sunita Devi", loc:"Darbhanga → Delhi", text:"Excellent service at very reasonable price. The WhatsApp updates were very helpful. Our furniture arrived in perfect condition.", rating:5, initials:"SD" },
   { name:"Rohit Singh", loc:"Ranchi → Mumbai", text:"Best packers and movers in Jharkhand! Very trustworthy and transparent pricing. No hidden charges at all. Highly recommended!", rating:5, initials:"RS" },
+];
+
+const GALLERY_ITEMS = [
+  { id:1, category:"vehicles", title:"Our Moving Truck", img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop", desc:"Well maintained trucks for safe transportation" },
+  { id:2, category:"vehicles", title:"Loading Vehicle", img:"https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&auto=format&fit=crop", desc:"Professional loading and unloading" },
+  { id:3, category:"team", title:"Our Expert Team", img:"https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&auto=format&fit=crop", desc:"Trained and verified professionals" },
+  { id:4, category:"team", title:"Packing Experts", img:"https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop", desc:"Expert packing with quality materials" },
+  { id:5, category:"work", title:"Safe Packing", img:"https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop", desc:"Every item packed with care" },
+  { id:6, category:"work", title:"Furniture Moving", img:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop", desc:"Safe handling of all furniture" },
+  { id:7, category:"work", title:"Office Relocation", img:"https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop", desc:"Professional office moving services" },
+  { id:8, category:"work", title:"Home Shifting", img:"https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&auto=format&fit=crop", desc:"Complete household shifting" },
+  { id:9, category:"vehicles", title:"Our Fleet", img:"https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600&auto=format&fit=crop", desc:"Multiple vehicles for all move sizes" },
 ];
 
 const MOCK_BOOKINGS = [
@@ -239,15 +224,22 @@ function Navbar({ page, setPage }) {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const links = [{ label:"Home", key:"home" },{ label:"Services", key:"services" },{ label:"Get Quote", key:"quote" },{ label:"Track Move", key:"tracking" },{ label:"Contact", key:"contact" }];
+  const links = [
+    { label:"Home", key:"home" },
+    { label:"Services", key:"services" },
+    { label:"Gallery", key:"gallery" },
+    { label:"Get Quote", key:"quote" },
+    { label:"Track Move", key:"tracking" },
+    { label:"Contact", key:"contact" },
+  ];
   const isHero = page === "home" && !scrolled;
   return (
     <>
       <nav className={`navbar ${scrolled || page !== "home" ? "scrolled" : "transparent"}`}>
         <div className="nav-inner">
           <div className="nav-logo" onClick={() => setPage("home")}>
-            <img src={`${window.location.origin}/logo.png`} alt="Rkoshi Logo" style={{ width:"40px", height:"40px", borderRadius:"8px", objectFit:"contain" }} />
-            Rkoshi <span>Movers</span>
+            <img src="/logo.png" alt="Rkoshi Logo" style={{ width:75, height:75, borderRadius:10, objectFit:"contain" }} />
+            <span style={{color:"var(--orange)"}}>Rkoshi</span><span style={{color:"var(--orange)"}}>Packers & Movers</span>
           </div>
           <ul className="nav-links">
             {links.map(l => (
@@ -270,7 +262,7 @@ function Navbar({ page, setPage }) {
         <div className="mobile-menu">
           <button onClick={() => setMobileOpen(false)} style={{ position:"absolute", top:20, right:20, background:"none", border:"none", fontSize:28, cursor:"pointer" }}>✕</button>
           {links.map(l => (
-            <a key={l.key} style={{ display:"block", padding:"16px 0", borderBottom:"1px solid #eee", fontSize:18, cursor:"pointer", color:"var(--navy)", fontWeight:600 }} onClick={() => { setPage(l.key); setMobileOpen(false); }}>{l.label}</a>
+            <a key={l.key} style={{ display:"block", padding:"14px 0", borderBottom:"1px solid #eee", fontSize:17, cursor:"pointer", color:"var(--navy)", fontWeight:600 }} onClick={() => { setPage(l.key); setMobileOpen(false); }}>{l.label}</a>
           ))}
           <button className="btn btn-primary" style={{ marginTop:24, width:"100%", justifyContent:"center" }} onClick={() => { setPage("booking"); setMobileOpen(false); }}>Book Now 🚛</button>
         </div>
@@ -288,7 +280,6 @@ function HomePage({ setPage }) {
   };
   return (
     <>
-      {/* HERO */}
       <section className="hero">
         <div className="hero-grid"></div>
         <div className="hero-content">
@@ -306,7 +297,6 @@ function HomePage({ setPage }) {
               ))}
             </div>
           </div>
-          {/* Quick Quote */}
           <div className="quote-card">
             <div className="quote-card-title">⚡ Quick Price Estimator</div>
             <div className="quote-card-sub">Get instant estimate in 30 seconds</div>
@@ -341,7 +331,6 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* SERVICES */}
       <section className="section" style={{ background:"var(--gray-50)" }}>
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:52 }}>
@@ -350,7 +339,7 @@ function HomePage({ setPage }) {
             <p className="section-subtitle" style={{ margin:"0 auto" }}>From packing to delivery — we handle everything with care</p>
           </div>
           <div className="services-grid">
-            {SERVICES.map((s,i) => (
+            {SERVICES.map(s => (
               <div key={s.id} className="service-card" onClick={() => setPage("services")}>
                 <div className="service-icon" style={{ background:s.color }}>{s.icon}</div>
                 <div className="service-name">{s.name}</div>
@@ -366,7 +355,6 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* WHY US */}
       <section className="section">
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:52 }}>
@@ -375,10 +363,10 @@ function HomePage({ setPage }) {
           </div>
           <div className="features-grid">
             {[
-              { icon:"🛡️", title:"100% Insured Moves", desc:"Every shipment is fully insured against damage or loss during transit. Your belongings are safe with us." },
-              { icon:"📡", title:"Live GPS Tracking", desc:"Track your belongings in real-time. Know exactly where your goods are at all times." },
-              { icon:"⭐", title:"Verified Professionals", desc:"Background-checked, trained staff with experience handling all types of goods with care." },
-              { icon:"💰", title:"No Hidden Charges", desc:"Transparent pricing always. The quote we give is exactly what you pay — no surprises." },
+              { icon:"🛡️", title:"100% Insured Moves", desc:"Every shipment is fully insured against damage or loss during transit." },
+              { icon:"📡", title:"Live GPS Tracking", desc:"Track your belongings in real-time on your phone." },
+              { icon:"⭐", title:"Verified Professionals", desc:"Background-checked, trained staff with years of experience." },
+              { icon:"💰", title:"No Hidden Charges", desc:"Transparent pricing always. The quote we give is exactly what you pay." },
             ].map((f,i) => (
               <div key={i} className="feature-item">
                 <span className="feature-icon" style={{ animationDelay:`${i*0.3}s` }}>{f.icon}</span>
@@ -390,7 +378,6 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
       <section className="section" style={{ background:"var(--gray-50)" }}>
         <div className="container">
           <div style={{ textAlign:"center", marginBottom:52 }}>
@@ -415,7 +402,6 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="section-sm">
         <div className="container">
           <div className="cta-banner">
@@ -431,6 +417,71 @@ function HomePage({ setPage }) {
           </div>
         </div>
       </section>
+      <Footer setPage={setPage} />
+    </>
+  );
+}
+
+function GalleryPage({ setPage }) {
+  const [filter, setFilter] = useState("all");
+  const [selected, setSelected] = useState(null);
+  const filtered = filter === "all" ? GALLERY_ITEMS : GALLERY_ITEMS.filter(g => g.category === filter);
+  return (
+    <>
+      <div style={{ background:"linear-gradient(135deg,var(--navy),#1A3A7A)", padding:"120px 0 64px" }}>
+        <div className="container" style={{ textAlign:"center" }}>
+          <div className="section-tag" style={{ background:"rgba(255,255,255,0.1)", color:"white" }}>📸 Our Work</div>
+          <h1 className="section-title" style={{ color:"white" }}>Photo Gallery</h1>
+          <p style={{ color:"rgba(255,255,255,0.65)", fontSize:17 }}>See our team, vehicles and work in action</p>
+        </div>
+      </div>
+      <div className="section">
+        <div className="container">
+          <div style={{ display:"flex", gap:12, justifyContent:"center", marginBottom:48, flexWrap:"wrap" }}>
+            {[
+              { key:"all", label:"All Photos" },
+              { key:"vehicles", label:"🚛 Vehicles" },
+              { key:"team", label:"👥 Team" },
+              { key:"work", label:"📦 Our Work" },
+            ].map(f => (
+              <button key={f.key} onClick={() => setFilter(f.key)} style={{ padding:"10px 24px", borderRadius:50, border:"2px solid var(--blue)", background: filter === f.key ? "var(--blue)" : "transparent", color: filter === f.key ? "white" : "var(--blue)", fontFamily:"var(--font-display)", fontWeight:700, fontSize:14, cursor:"pointer", transition:"all 0.2s" }}>
+                {f.label}
+              </button>
+            ))}
+          </div>
+          <div className="gallery-grid">
+            {filtered.map(photo => (
+              <div key={photo.id} className="gallery-card" onClick={() => setSelected(photo)}>
+                <img src={photo.img} alt={photo.title} style={{ width:"100%", height:220, objectFit:"cover", display:"block" }} onError={e => { e.target.src = "https://via.placeholder.com/600x400?text=Rkoshi+Packers"; }} />
+                <div style={{ padding:"16px 18px", background:"white" }}>
+                  <div style={{ fontFamily:"var(--font-display)", fontWeight:700, fontSize:16, marginBottom:4 }}>{photo.title}</div>
+                  <div style={{ fontSize:13, color:"var(--gray-400)" }}>{photo.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop:48, textAlign:"center", padding:"32px", background:"var(--blue-pale)", borderRadius:16, border:"2px dashed var(--blue)" }}>
+            <div style={{ fontSize:48, marginBottom:12 }}>📸</div>
+            <h3 style={{ fontFamily:"var(--font-display)", fontWeight:700, marginBottom:8 }}>Add Your Real Photos</h3>
+            <p style={{ color:"var(--gray-600)", marginBottom:16 }}>Send your work photos on WhatsApp and we will add them to your website!</p>
+            <button className="btn btn-primary" onClick={() => window.open(`https://wa.me/${COMPANY.whatsapp}?text=Hello! I want to add photos to my website.`, "_blank")}>💬 Send Photos on WhatsApp</button>
+          </div>
+        </div>
+      </div>
+      {selected && (
+        <div className="lightbox" onClick={() => setSelected(null)}>
+          <div onClick={e => e.stopPropagation()} style={{ maxWidth:700, width:"100%", background:"white", borderRadius:20, overflow:"hidden" }}>
+            <img src={selected.img} alt={selected.title} style={{ width:"100%", height:400, objectFit:"cover" }} />
+            <div style={{ padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+              <div>
+                <div style={{ fontFamily:"var(--font-display)", fontWeight:700, fontSize:18 }}>{selected.title}</div>
+                <div style={{ color:"var(--gray-400)", fontSize:14, marginTop:4 }}>{selected.desc}</div>
+              </div>
+              <button onClick={() => setSelected(null)} style={{ background:"var(--gray-100)", border:"none", borderRadius:"50%", width:40, height:40, fontSize:20, cursor:"pointer" }}>✕</button>
+            </div>
+          </div>
+        </div>
+      )}
       <Footer setPage={setPage} />
     </>
   );
@@ -505,33 +556,25 @@ function QuotePage({ setPage }) {
             <div className="card" style={{ padding:"36px 32px" }}>
               {step===1 && (
                 <div style={{ display:"flex", flexDirection:"column", gap:18 }}>
-                  <h3 style={{ fontFamily:"var(--font-display)", fontSize:22, fontWeight:700, marginBottom:8 }}>Tell us about yourself</h3>
+                  <h3 style={{ fontFamily:"var(--font-display)", fontSize:22, fontWeight:700 }}>Tell us about yourself</h3>
                   <div className="form-group"><label className="form-label">Full Name *</label><input className="form-input" placeholder="Your full name" value={form.name} onChange={e=>update("name",e.target.value)} /></div>
                   <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16 }}>
                     <div className="form-group"><label className="form-label">Phone *</label><input className="form-input" placeholder="+91 XXXXX XXXXX" type="tel" value={form.phone} onChange={e=>update("phone",e.target.value)} /></div>
                     <div className="form-group"><label className="form-label">Email</label><input className="form-input" placeholder="you@email.com" type="email" value={form.email} onChange={e=>update("email",e.target.value)} /></div>
                   </div>
-                  <button className="btn btn-secondary" style={{ marginTop:8, alignSelf:"flex-end", padding:"13px 32px" }} onClick={() => { if(!form.name||!form.phone){setToast({msg:"Please fill name and phone",type:"error"});return;} setStep(2); }}>Next: Move Details →</button>
+                  <button className="btn btn-secondary" style={{ alignSelf:"flex-end", padding:"13px 32px" }} onClick={() => { if(!form.name||!form.phone){setToast({msg:"Please fill name and phone",type:"error"});return;} setStep(2); }}>Next →</button>
                 </div>
               )}
               {step===2 && (
                 <div style={{ display:"flex", flexDirection:"column", gap:18 }}>
-                  <h3 style={{ fontFamily:"var(--font-display)", fontSize:22, fontWeight:700, marginBottom:8 }}>Your Moving Details</h3>
+                  <h3 style={{ fontFamily:"var(--font-display)", fontSize:22, fontWeight:700 }}>Your Moving Details</h3>
                   <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16 }}>
                     <div className="form-group"><label className="form-label">From City *</label><select className="form-input form-select" value={form.from} onChange={e=>update("from",e.target.value)}><option value="">Select city</option>{CITIES.map(c=><option key={c}>{c}</option>)}</select></div>
                     <div className="form-group"><label className="form-label">To City *</label><select className="form-input form-select" value={form.to} onChange={e=>update("to",e.target.value)}><option value="">Select city</option>{CITIES.map(c=><option key={c}>{c}</option>)}</select></div>
                     <div className="form-group"><label className="form-label">Property Size *</label><select className="form-input form-select" value={form.size} onChange={e=>update("size",e.target.value)}><option value="">Select size</option>{HOUSE_SIZES.map(s=><option key={s}>{s}</option>)}</select></div>
                     <div className="form-group"><label className="form-label">Floor Number</label><select className="form-input form-select" value={form.floor} onChange={e=>update("floor",e.target.value)}><option value="0">Ground Floor</option>{[1,2,3,4,5,6,7,8].map(f=><option key={f} value={f}>Floor {f}</option>)}</select></div>
                     <div className="form-group"><label className="form-label">Move Date</label><input className="form-input" type="date" value={form.moveDate} onChange={e=>update("moveDate",e.target.value)} min={new Date().toISOString().split("T")[0]} /></div>
-                    <div className="form-group"><label className="form-label">Furniture Count</label><input className="form-input" type="number" placeholder="e.g. 8" value={form.furniture} onChange={e=>update("furniture",e.target.value)} min="0" /></div>
-                  </div>
-                  <div style={{ display:"flex", gap:8, alignItems:"center" }}>
-                    <input type="checkbox" id="elev" checked={form.elevator} onChange={e=>update("elevator",e.target.checked)} style={{ width:18, height:18 }} />
-                    <label htmlFor="elev" style={{ cursor:"pointer", fontSize:15 }}>Elevator available at pickup/delivery location</label>
-                  </div>
-                  <div style={{ display:"flex", gap:8, alignItems:"center" }}>
-                    <input type="checkbox" id="frag" checked={form.fragile} onChange={e=>update("fragile",e.target.checked)} style={{ width:18, height:18 }} />
-                    <label htmlFor="frag" style={{ cursor:"pointer", fontSize:15 }}>I have fragile or antique items</label>
+                    <div className="form-group"><label className="form-label">Furniture Count</label><input className="form-input" type="number" placeholder="e.g. 8" value={form.furniture} onChange={e=>update("furniture",e.target.value)} /></div>
                   </div>
                   <div style={{ display:"flex", gap:12, marginTop:8, justifyContent:"space-between" }}>
                     <button className="btn btn-outline" onClick={() => setStep(1)}>← Back</button>
@@ -547,7 +590,7 @@ function QuotePage({ setPage }) {
                   <div style={{ background:"linear-gradient(135deg,var(--blue-pale),#fff)", border:"2px solid var(--blue)", borderRadius:16, padding:"28px 36px", marginBottom:24 }}>
                     <div style={{ fontSize:13, textTransform:"uppercase", letterSpacing:"0.1em", fontWeight:700, color:"var(--gray-400)", marginBottom:8 }}>Estimated Cost</div>
                     <div style={{ fontFamily:"var(--font-display)", fontSize:44, fontWeight:800, color:"var(--blue)" }}>₹{quote.min.toLocaleString()} <span style={{ fontSize:24, color:"var(--gray-400)" }}>– ₹{quote.max.toLocaleString()}</span></div>
-                    <div style={{ color:"var(--gray-400)", fontSize:13, marginTop:8 }}>*Includes packing, loading, transport & unloading. Final price after free survey.</div>
+                    <div style={{ color:"var(--gray-400)", fontSize:13, marginTop:8 }}>*Includes packing, loading, transport & unloading</div>
                   </div>
                   <div style={{ display:"flex", gap:12, justifyContent:"center" }}>
                     <button className="btn btn-primary" style={{ fontSize:16, padding:"15px 32px" }} onClick={() => setPage("booking")}>Book Now →</button>
@@ -580,7 +623,7 @@ function BookingPage({ setPage }) {
       <div className="card" style={{ maxWidth:500, width:"100%", padding:48, textAlign:"center" }}>
         <div style={{ width:80, height:80, background:"linear-gradient(135deg,#22C55E,#16A34A)", borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:36, margin:"0 auto 24px" }}>✓</div>
         <h2 style={{ fontFamily:"var(--font-display)", fontSize:26, fontWeight:800, marginBottom:12 }}>Booking Confirmed!</h2>
-        <p style={{ color:"var(--gray-600)", marginBottom:28 }}>Our team will call you within 2 hours to confirm details. Thank you for choosing Rkoshi Packers & Movers!</p>
+        <p style={{ color:"var(--gray-600)", marginBottom:28 }}>Our team will call you within 2 hours. Thank you for choosing {COMPANY.name}!</p>
         <div style={{ background:"var(--blue-pale)", border:"1px solid rgba(26,92,255,0.2)", borderRadius:12, padding:"20px 24px", marginBottom:28 }}>
           <div style={{ fontSize:13, color:"var(--gray-400)", fontWeight:600, textTransform:"uppercase", letterSpacing:"0.08em" }}>Your Booking ID</div>
           <div style={{ fontFamily:"var(--font-display)", fontSize:36, fontWeight:800, color:"var(--blue)", letterSpacing:"0.05em", marginTop:6 }}>{bookingId}</div>
@@ -599,7 +642,6 @@ function BookingPage({ setPage }) {
         <div className="container" style={{ textAlign:"center" }}>
           <div className="section-tag" style={{ background:"rgba(255,255,255,0.1)", color:"white" }}>Book a Move</div>
           <h1 className="section-title" style={{ color:"white" }}>Schedule Your Move Today</h1>
-          <p style={{ color:"rgba(255,255,255,0.65)", fontSize:17 }}>Fill the form below and we'll contact you within 2 hours</p>
         </div>
       </div>
       <div className="section-sm">
@@ -621,7 +663,7 @@ function BookingPage({ setPage }) {
                   <div className="form-group"><label className="form-label">Move Date</label><input className="form-input" type="date" value={form.moveDate} onChange={e=>update("moveDate",e.target.value)} min={new Date().toISOString().split("T")[0]} /></div>
                   <div className="form-group"><label className="form-label">Coupon Code</label><input className="form-input" placeholder="e.g. RKOSHI15" value={form.coupon} onChange={e=>update("coupon",e.target.value)} /></div>
                 </div>
-                <div className="form-group"><label className="form-label">Special Instructions</label><textarea className="form-input" placeholder="Fragile items, access details, anything else..." value={form.notes} onChange={e=>update("notes",e.target.value)} rows={3} style={{ resize:"vertical" }} /></div>
+                <div className="form-group"><label className="form-label">Special Instructions</label><textarea className="form-input" placeholder="Fragile items, access details..." value={form.notes} onChange={e=>update("notes",e.target.value)} rows={3} style={{ resize:"vertical" }} /></div>
                 <button className="btn btn-primary" style={{ justifyContent:"center", padding:15, fontSize:16 }} onClick={handleSubmit}>Confirm Booking Request 🚛</button>
               </div>
             </div>
@@ -637,7 +679,7 @@ function BookingPage({ setPage }) {
               </div>
               <div className="card" style={{ padding:22 }}>
                 <h4 style={{ fontFamily:"var(--font-display)", fontWeight:700, marginBottom:12, fontSize:15 }}>✅ Included Free</h4>
-                {["Professional packing materials","Loading & unloading","Door-to-door transport","Basic transit insurance","Dedicated move manager"].map(f=>(
+                {["Professional packing","Loading & unloading","Door-to-door transport","Basic transit insurance","Dedicated move manager"].map(f=>(
                   <div key={f} className="service-feature" style={{ marginBottom:8 }}>{f}</div>
                 ))}
               </div>
@@ -661,10 +703,10 @@ function TrackingPage({ setPage }) {
     "RK-1003":{ customer:"Rohit Singh", from:"Ranchi", to:"Mumbai", service:"Furniture Moving", status:"confirmed", date:"Jan 20, 2024", activeStep:1, vehicle:"JH 05 EF 9012" },
   };
   const TRACK_STEPS = [
-    { label:"Order Confirmed", icon:"✅", desc:"Booking received and confirmed by our team" },
-    { label:"Packing Started", icon:"📦", desc:"Our team has arrived and started packing your items" },
-    { label:"In Transit", icon:"🚛", desc:"Your belongings are on their way to the destination" },
-    { label:"Out for Delivery", icon:"📍", desc:"Vehicle is near your delivery location" },
+    { label:"Order Confirmed", icon:"✅", desc:"Booking received and confirmed" },
+    { label:"Packing Started", icon:"📦", desc:"Team arrived and started packing" },
+    { label:"In Transit", icon:"🚛", desc:"Your belongings are on the way" },
+    { label:"Out for Delivery", icon:"📍", desc:"Vehicle is near your location" },
     { label:"Delivered", icon:"🏠", desc:"All items delivered successfully!" },
   ];
   const handleTrack = () => { const r=MOCK_TRACKS[trackId.toUpperCase()]; if(r){setResult(r);setNotFound(false);}else{setResult(null);setNotFound(true);} };
@@ -682,9 +724,9 @@ function TrackingPage({ setPage }) {
           <div style={{ maxWidth:640, margin:"0 auto" }}>
             <div className="card" style={{ padding:"32px 28px", marginBottom:24 }}>
               <h3 style={{ fontFamily:"var(--font-display)", fontWeight:700, fontSize:20, marginBottom:6 }}>Enter Your Booking ID</h3>
-              <p style={{ color:"var(--gray-400)", fontSize:14, marginBottom:18 }}>Format: RK-XXXX (e.g. RK-1002)</p>
+              <p style={{ color:"var(--gray-400)", fontSize:14, marginBottom:18 }}>Format: RK-XXXX (try RK-1002)</p>
               <div style={{ display:"flex", gap:12 }}>
-                <input className="form-input" placeholder="Enter booking ID (try RK-1002)" value={trackId} onChange={e=>setTrackId(e.target.value)} onKeyDown={e=>e.key==="Enter"&&handleTrack()} style={{ flex:1, fontSize:16 }} />
+                <input className="form-input" placeholder="Enter booking ID" value={trackId} onChange={e=>setTrackId(e.target.value)} onKeyDown={e=>e.key==="Enter"&&handleTrack()} style={{ flex:1 }} />
                 <button className="btn btn-secondary" onClick={handleTrack}>🔍 Track</button>
               </div>
               <div style={{ marginTop:12, display:"flex", gap:8, flexWrap:"wrap" }}>
@@ -698,18 +740,18 @@ function TrackingPage({ setPage }) {
               <div className="card" style={{ padding:32, textAlign:"center" }}>
                 <div style={{ fontSize:48, marginBottom:12 }}>🔍</div>
                 <h3 style={{ fontFamily:"var(--font-display)", fontWeight:700, marginBottom:8 }}>Booking ID Not Found</h3>
-                <p style={{ color:"var(--gray-600)" }}>Please check the ID and try again, or call us at {COMPANY.phone}</p>
+                <p style={{ color:"var(--gray-600)" }}>Please check and try again, or call us at {COMPANY.phone}</p>
               </div>
             )}
             {result && (
-              <div className="card" style={{ padding:"28px 24px", animation:"fadeUp 0.4s ease both" }}>
+              <div className="card" style={{ padding:"28px 24px" }}>
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:24, flexWrap:"wrap", gap:12 }}>
                   <div>
-                    <div style={{ fontFamily:"var(--font-display)", fontWeight:800, fontSize:20, color:"var(--navy)" }}>{trackId.toUpperCase()}</div>
+                    <div style={{ fontFamily:"var(--font-display)", fontWeight:800, fontSize:20 }}>{trackId.toUpperCase()}</div>
                     <div style={{ color:"var(--gray-400)", fontSize:14, marginTop:4 }}>{result.service} • {result.date}</div>
                     <div style={{ color:"var(--gray-600)", fontSize:14, marginTop:4 }}>🚛 {result.vehicle}</div>
                   </div>
-                  <span className={`badge badge-${result.status}`} style={{ fontSize:14, padding:"8px 18px" }}>{result.status.charAt(0).toUpperCase()+result.status.slice(1)}</span>
+                  <span style={{ background: result.status==="delivered"?"#D1FAE5":result.status==="transit"?"#F3E8FF":"#DBEAFE", color: result.status==="delivered"?"#059669":result.status==="transit"?"#7C3AED":"#2563EB", padding:"8px 18px", borderRadius:50, fontWeight:700, fontSize:13 }}>{result.status.charAt(0).toUpperCase()+result.status.slice(1)}</span>
                 </div>
                 <div style={{ display:"grid", gridTemplateColumns:"1fr auto 1fr", gap:16, alignItems:"center", background:"var(--gray-50)", borderRadius:12, padding:"16px 20px", marginBottom:24 }}>
                   <div><div style={{ fontSize:12, color:"var(--gray-400)", fontWeight:600, textTransform:"uppercase" }}>From</div><div style={{ fontFamily:"var(--font-display)", fontWeight:700, fontSize:16, marginTop:4 }}>📍 {result.from}</div></div>
@@ -723,7 +765,7 @@ function TrackingPage({ setPage }) {
                       <div className="step-dot">{i<result.activeStep?"✓":s.icon}</div>
                       <div className="step-info">
                         <div className="step-label" style={{ color:i>result.activeStep?"var(--gray-400)":undefined }}>{s.label}</div>
-                        <div className={`step-meta ${i===result.activeStep?"active-meta":""}`}>{i===result.activeStep?"In Progress...":i<result.activeStep?"Completed":"Upcoming"} — {s.desc}</div>
+                        <div className={`step-meta ${i===result.activeStep?"active-meta":""}`}>{i===result.activeStep?"In Progress...":i<result.activeStep?"Completed":"Upcoming"}</div>
                       </div>
                     </div>
                   ))}
@@ -761,11 +803,11 @@ function ContactPage({ setPage }) {
           <div className="contact-grid">
             <div>
               <h2 style={{ fontFamily:"var(--font-display)", fontSize:30, fontWeight:800, marginBottom:10 }}>Contact {COMPANY.name}</h2>
-              <p style={{ color:"var(--gray-600)", fontSize:16, marginBottom:32 }}>Reach us through any channel. Our team is available 7 days a week.</p>
+              <p style={{ color:"var(--gray-600)", fontSize:16, marginBottom:32 }}>Our team is available 7 days a week.</p>
               {[
                 { icon:"📞", title:"Call Us", lines:[COMPANY.phone,"Available: 8 AM – 8 PM, 7 days"] },
                 { icon:"💬", title:"WhatsApp", lines:["Quick response on WhatsApp","Send us your requirements"] },
-                { icon:"✉️", title:"Email", lines:[COMPANY.email, COMPANY.email2] },
+                { icon:"✉️", title:"Email", lines:[COMPANY.email] },
                 { icon:"📍", title:"Office Address", lines:[COMPANY.address, COMPANY.address2] },
               ].map((item,i) => (
                 <div key={i} style={{ display:"flex", gap:16, marginBottom:28 }}>
@@ -776,8 +818,8 @@ function ContactPage({ setPage }) {
                   </div>
                 </div>
               ))}
-              <div style={{ display:"flex", gap:12, flexWrap:"wrap", marginTop:8 }}>
-                <button className="btn btn-secondary" onClick={() => window.open(`https://wa.me/${COMPANY.whatsapp}?text=Hello Rkoshi Packers! I need help with relocation.`,"_blank")}>💬 WhatsApp Now</button>
+              <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
+                <button className="btn btn-secondary" onClick={() => window.open(`https://wa.me/${COMPANY.whatsapp}`,"_blank")}>💬 WhatsApp Now</button>
                 <button className="btn btn-outline" onClick={() => setPage("quote")}>Get Free Quote</button>
               </div>
             </div>
@@ -797,7 +839,7 @@ function ContactPage({ setPage }) {
                     <div className="form-group"><label className="form-label">Email</label><input className="form-input" type="email" value={form.email} onChange={e=>update("email",e.target.value)} placeholder="you@email.com" /></div>
                   </div>
                   <div className="form-group"><label className="form-label">Service Needed</label><select className="form-input form-select" value={form.service} onChange={e=>update("service",e.target.value)}><option value="">Select service</option>{SERVICES.map(s=><option key={s.id} value={s.id}>{s.name}</option>)}</select></div>
-                  <div className="form-group"><label className="form-label">Message</label><textarea className="form-input" rows={4} value={form.message} onChange={e=>update("message",e.target.value)} placeholder="Tell us your moving requirements..." style={{ resize:"vertical" }} /></div>
+                  <div className="form-group"><label className="form-label">Message</label><textarea className="form-input" rows={4} value={form.message} onChange={e=>update("message",e.target.value)} placeholder="Tell us your requirements..." style={{ resize:"vertical" }} /></div>
                   <button className="btn btn-primary" style={{ justifyContent:"center", padding:14 }} onClick={handleSubmit}>Send Message ✈️</button>
                 </div>
               )}
@@ -818,14 +860,14 @@ function Footer({ setPage }) {
         <div className="footer-grid">
           <div>
             <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:12 }}>
-              <img src={`${window.location.origin}/logo.png`} alt="Rkoshi Logo" style={{ width:36, height:36, borderRadius:8, objectFit:"contain" }} />
-              <span style={{ fontFamily:"var(--font-display)", fontWeight:800, fontSize:18, color:"white" }}>Rkoshi Movers</span>
+              <img src="/logo.png" alt="Rkoshi Logo" style={{ width:36, height:36, borderRadius:8, objectFit:"contain" }} />
+              <span style={{ fontFamily:"var(--font-display)", fontWeight:800, fontSize:16, color:"white" }}>Rkoshi Packers & Movers</span>
             </div>
-            <p style={{ fontSize:14, lineHeight:1.75, maxWidth:260 }}>{COMPANY.fullName}. Serving Ranchi, Darbhanga and 50+ cities across India with safe and affordable relocation services.</p>
-            <div style={{ marginTop:16, fontSize:13 }}>
-              <div style={{ color:"rgba(255,255,255,0.6)", marginBottom:4 }}>📞 {COMPANY.phone}</div>
-              <div style={{ color:"rgba(255,255,255,0.6)", marginBottom:4 }}>✉️ {COMPANY.email}</div>
-              <div style={{ color:"rgba(255,255,255,0.6)" }}>📍 {COMPANY.address}</div>
+            <p style={{ fontSize:14, lineHeight:1.75, maxWidth:260 }}>{COMPANY.fullName}. Serving Ranchi, Darbhanga and across India with safe and affordable relocation.</p>
+            <div style={{ marginTop:16 }}>
+              <div style={{ color:"rgba(255,255,255,0.6)", fontSize:13, marginBottom:4 }}>📞 {COMPANY.phone}</div>
+              <div style={{ color:"rgba(255,255,255,0.6)", fontSize:13, marginBottom:4 }}>✉️ {COMPANY.email}</div>
+              <div style={{ color:"rgba(255,255,255,0.6)", fontSize:13 }}>📍 {COMPANY.address}</div>
             </div>
           </div>
           <div>
@@ -834,7 +876,7 @@ function Footer({ setPage }) {
           </div>
           <div>
             <div className="footer-heading">Quick Links</div>
-            {[{l:"Home",k:"home"},{l:"Services",k:"services"},{l:"Get Quote",k:"quote"},{l:"Book a Move",k:"booking"},{l:"Track Shipment",k:"tracking"},{l:"Contact Us",k:"contact"}].map(i=><a key={i.k} className="footer-link" onClick={()=>setPage(i.k)}>{i.l}</a>)}
+            {[{l:"Home",k:"home"},{l:"Services",k:"services"},{l:"Gallery",k:"gallery"},{l:"Get Quote",k:"quote"},{l:"Book a Move",k:"booking"},{l:"Track Shipment",k:"tracking"},{l:"Contact Us",k:"contact"}].map(i=><a key={i.k} className="footer-link" onClick={()=>setPage(i.k)}>{i.l}</a>)}
           </div>
           <div>
             <div className="footer-heading">We Serve</div>
@@ -870,12 +912,13 @@ export default function App() {
       <main>
         {page==="home" && <HomePage setPage={setPage} />}
         {page==="services" && <ServicesPage setPage={setPage} />}
+        {page==="gallery" && <GalleryPage setPage={setPage} />}
         {page==="quote" && <QuotePage setPage={setPage} />}
         {page==="booking" && <BookingPage setPage={setPage} />}
         {page==="tracking" && <TrackingPage setPage={setPage} />}
         {page==="contact" && <ContactPage setPage={setPage} />}
       </main>
-      <div className="whatsapp-float" title="Chat on WhatsApp" onClick={() => window.open(`https://wa.me/${COMPANY.whatsapp}?text=Hello Rkoshi Packers! I need help with relocation.`,"_blank")}>💬</div>
+      <div className="whatsapp-float" onClick={() => window.open(`https://wa.me/${COMPANY.whatsapp}?text=Hello Rkoshi Packers! I need help.`,"_blank")}>💬</div>
     </>
   );
 }

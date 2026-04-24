@@ -15,7 +15,7 @@ const GlobalStyles = () => (
       --shadow-orange: 0 8px 30px rgba(255,107,43,0.3); --radius: 12px; --radius-lg: 20px;
     }
     html { scroll-behavior: smooth; }
-    html, body { background: #0A1628 !important; min-width: 100%; overflow-x: hidden; }
+    html, body { background: #0A1628 !important; width: 100%; max-width: 100%; overflow-x: hidden; margin:0; padding:0; }
     body { font-family: var(--font-body); background: var(--white); color: var(--gray-800); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     h1,h2,h3,h4,h5 { font-family: var(--font-display); line-height: 1.15; color: var(--navy); }
     @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
@@ -47,7 +47,7 @@ const GlobalStyles = () => (
     .section-subtitle { font-size:17px; color:var(--gray-600); max-width:560px; line-height:1.7; }
     .navbar { position:fixed; top:0; left:0; right:0; z-index:1000; transition:all 0.3s ease; }
     .navbar.scrolled { background:rgba(255,255,255,0.95); backdrop-filter:blur(20px); box-shadow:0 1px 0 rgba(0,0,0,0.08); }
-    .navbar.transparent { background:rgba(10,22,40,0.85); backdrop-filter:blur(10px); }
+    .navbar.transparent { background:rgba(10,22,40,0.95); backdrop-filter:blur(10px); width:100%; left:0; right:0; }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; height:72px; max-width:1200px; margin:0 auto; padding:0 24px; }
     .nav-logo { display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:18px; font-weight:800; color: isHero ? "white" : "var(--navy)"; text-decoration:none; cursor:pointer; }
     .nav-logo span { color:var(--orange); }

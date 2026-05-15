@@ -15,7 +15,7 @@ const GlobalStyles = () => (
       --shadow-orange: 0 8px 30px rgba(255,107,43,0.3); --radius: 12px; --radius-lg: 20px;
     }
     html { scroll-behavior: smooth; }
-    html, body { background: #0A1628 !important; width: 100%; max-width: 100%; overflow-x: hidden; margin:0; padding:0; }
+
     body { font-family: var(--font-body); background: var(--white); color: var(--gray-800); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     h1,h2,h3,h4,h5 { font-family: var(--font-display); line-height: 1.15; color: var(--navy); }
     @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
@@ -239,7 +239,7 @@ function Navbar({ page, setPage }) {
       <nav className={`navbar ${scrolled || page !== "home" ? "scrolled" : "transparent"}`}>
         <div className="nav-inner">
           <div className="nav-logo" onClick={() => setPage("home")}>
-            <img src="/logo.png" alt="Rkoshi Logo" style={{ width:75, height:75, borderRadius:10, objectFit:"contain"font-size:20px; font-weight:800; }} />
+            <img src="/logo.png" alt="Rkoshi Logo" style={{ width:55, height:55, borderRadius:10, objectFit:"contain" }} />
             <span style={{color:"var(--orange)"}}>Rkoshi</span><span style={{color:"var(--orange)"}}>Packers & Movers</span>
           </div>
           <ul className="nav-links">

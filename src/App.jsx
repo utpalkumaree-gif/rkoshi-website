@@ -58,7 +58,7 @@ const GlobalStyles = () => (
     .mobile-menu-btn { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
     .mobile-menu-btn span { display:block; width:24px; height:2px; background:var(--navy); border-radius:2px; transition:all 0.3s; }
     @media(max-width:900px){ .nav-links { display:none; } .mobile-menu-btn { display:flex; } }
-    .hero { min-height:100vh; background:linear-gradient(135deg,var(--navy) 0%,#0F2456 50%,#1A3A7A 100%); position:fixed; top:0; left:0; right:0; bottom:0; display:flex; align-items:center; overflow:hidden; width:100vw; }
+   .hero { min-height:100vh; background:linear-gradient(135deg,var(--navy) 0%,#0F2456 50%,#1A3A7A 100%); position:relative; display:flex; align-items:center; overflow:hidden; width:100%; }
     .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 60% 50%,rgba(26,92,255,0.18) 0%,transparent 70%),radial-gradient(circle at 20% 80%,rgba(255,107,43,0.12) 0%,transparent 50%); }
     .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px); background-size:60px 60px; }
     .hero-content { position:relative; z-index:2; display:grid; grid-template-columns:1fr 460px; gap:64px; align-items:center; max-width:1200px; margin:0 auto; padding:100px 24px 60px; width:100%; }

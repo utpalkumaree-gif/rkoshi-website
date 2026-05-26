@@ -160,6 +160,7 @@ const COMPANY = {
 phone2: "+91 9821559094",
   whatsapp: "918825239623",
 whatsapp2: "919821559094",
+whatsapp2: "919821559094",
   email: "rkoshipackers@gmail.com",
   email2: "bookings@rkoshipackers.in",
   address: "Ranchi, Jharkhand – 834001",
@@ -289,7 +290,7 @@ function HomePage({ setPage }) {
           <div>
             <div className="hero-badge">🚛 {COMPANY.tagline}</div>
             <h1 className="hero-title">Move Anywhere<br />with <span className="highlight">Full Confidence</span></h1>
-            <p className="hero-desc">Professional packers & movers based in Ranchi, serving all across Jharkhand, Bihar and India. Safe, affordable and on-time — every time.</p>
+            <p className="hero-desc">Best packers and movers in Ranchi, Darbhanga, Samastipur, Muzaffarpur, Saharsa, Khagaria and many more city across Jharkhand and Bihar. Professional household shifting, office relocation, furniture transport and intercity moving services across Darbhanga, Patna, Delhi, Mumbai and 500+ cities. Safe, affordable and on-time — every time.</p>
             <div className="hero-ctas">
               <button className="btn btn-primary" onClick={() => setPage("quote")}>Get Free Quote ⚡</button>
               <button className="btn btn-ghost" onClick={() => window.open(`https://wa.me/${COMPANY.whatsapp}?text=Hello Rkoshi Packers! I need moving help.`, "_blank")}>💬 WhatsApp Us</button>
